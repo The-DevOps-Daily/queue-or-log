@@ -42,6 +42,7 @@ On a failure, each setup uses its own mechanism: a share group releases the reco
 - `scripts/up.sh`, `scripts/down.sh`: start and remove the brokers.
 - `scripts/brokers.py`: the six setups behind one small API.
 - `scripts/1_replay.py` to `scripts/4_order.py`: one experiment each. Every run uses fresh topics, queues and streams.
+- `scripts/2b_nack_by_version.py`: the RabbitMQ nack and reject test against whichever RabbitMQ is running (we ran 4.2.9 and 4.3.6).
 - `scripts/5_summary.py`: builds the tables from `runs/`.
 - `runs/`: the recorded results, the logs of the poison and order runs, and `versions.txt`.
 
@@ -55,7 +56,7 @@ See `runs/summary.md` for all four tables. In short:
 - **Poison:**
   - The two offset readers stopped at the poison message: 10 of 100 handled.
   - The Kafka share group and both NATS setups gave up after 5 deliveries, and all 99 other messages were handled.
-  - The RabbitMQ quorum queue never gave up when the consumer used `basic.nack`, even with `x-delivery-limit: 5`: over 5,000 attempts in 45 seconds. With `basic.reject` it dead-lettered the message after 6 deliveries. On RabbitMQ 4.x, only reject counts towards the delivery limit.
+  - The RabbitMQ 4.3.6 quorum queue never gave up when the consumer used `basic.nack`, even with `x-delivery-limit: 5`: over 5,000 attempts in 45 seconds. With `basic.reject` it dead-lettered the message after 6 deliveries. This changed in RabbitMQ 4.3: `scripts/2b_nack_by_version.py` runs the same test on two versions, and on 4.2.9 `basic.nack` dead-lettered the message after 6 deliveries too.
 - **Parallelism:**
   - The consumer group used 3 of 6 consumers, one per partition.
   - The share group also used only 3 when the producer batched records, because a member acquires whole producer batches. With one record per producer batch it used all 6.
