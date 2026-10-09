@@ -1,0 +1,2 @@
+# kafka-share-groups.sh --reset-offsets while a share consumer was still a member (2026-10-09)
+refused: Share group 'rp-0f84c8' is not empty.
