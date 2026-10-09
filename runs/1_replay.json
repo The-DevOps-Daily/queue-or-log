@@ -1,0 +1,51 @@
+{
+  "recorded_at": "2026-10-09T10:16:45Z",
+  "messages": 1000,
+  "results": {
+    "kafka consumer group": {
+      "storage": "log",
+      "consumption": "offset",
+      "first": 1000,
+      "replayed": 1000,
+      "how": "kafka-consumer-groups.sh --reset-offsets --to-earliest"
+    },
+    "kafka share group": {
+      "storage": "log",
+      "consumption": "per-message ack",
+      "first": 1000,
+      "same_group_again": 0,
+      "replayed": 1000,
+      "how": "kafka-share-groups.sh --reset-offsets --to-earliest"
+    },
+    "rabbitmq quorum queue": {
+      "storage": "queue",
+      "consumption": "per-message ack",
+      "first": 1000,
+      "replayed": 0,
+      "how": "consume again; there is nothing to rewind"
+    },
+    "rabbitmq stream": {
+      "storage": "log",
+      "consumption": "offset",
+      "first": 1000,
+      "replayed": 1000,
+      "how": "a new consumer with x-stream-offset=first"
+    },
+    "nats work-queue stream": {
+      "storage": "queue",
+      "consumption": "per-message ack",
+      "first": 1000,
+      "messages_left_in_stream": 0,
+      "replayed": 0,
+      "how": "nothing to rewind: the stream deletes each acked message"
+    },
+    "nats limits stream": {
+      "storage": "log",
+      "consumption": "per-message ack",
+      "first": 1000,
+      "messages_left_in_stream": 1000,
+      "replayed": 1000,
+      "how": "a new durable consumer with deliver_policy=all"
+    }
+  }
+}

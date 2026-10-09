@@ -1,0 +1,139 @@
+{
+  "recorded_at": "2026-10-09T10:57:06Z",
+  "events": "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+  "fails_once": "e3",
+  "results": {
+    "kafka consumer group": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "kafka share group (default)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "kafka share group (max.poll.records=1)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "rabbitmq quorum queue (prefetch 10)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "rabbitmq quorum queue (prefetch 1)": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "rabbitmq stream": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "nats workqueue stream (fetch 10, max_ack_pending 1000)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "nats workqueue stream (fetch 1, max_ack_pending 1000)": {
+      "runs": 5,
+      "runs_in_order": 2,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "nats workqueue stream (fetch 1, max_ack_pending 1)": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "nats limits stream (fetch 10, max_ack_pending 1000)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "nats limits stream (fetch 1, max_ack_pending 1000)": {
+      "runs": 5,
+      "runs_in_order": 2,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "nats limits stream (fetch 1, max_ack_pending 1)": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    }
+  }
+}

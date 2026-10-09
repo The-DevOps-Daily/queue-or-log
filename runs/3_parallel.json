@@ -1,0 +1,126 @@
+{
+  "recorded_at": "2026-10-09T10:44:45Z",
+  "messages": 120,
+  "consumers": 6,
+  "seconds_per_message": 0.05,
+  "results": {
+    "kafka consumer group": {
+      "per_consumer": [
+        0,
+        0,
+        40,
+        40,
+        40,
+        0
+      ],
+      "busy_consumers": 3,
+      "total_handles": 120,
+      "distinct_messages": 120,
+      "seconds_first_to_last_handle": 2.1,
+      "partitions": 3
+    },
+    "kafka share group": {
+      "per_consumer": [
+        40,
+        40,
+        0,
+        0,
+        0,
+        40
+      ],
+      "busy_consumers": 3,
+      "total_handles": 120,
+      "distinct_messages": 120,
+      "seconds_first_to_last_handle": 6.01,
+      "partitions": 3,
+      "max_poll_records": "default (500)"
+    },
+    "kafka share group (max.poll.records=1)": {
+      "per_consumer": [
+        0,
+        40,
+        0,
+        0,
+        40,
+        40
+      ],
+      "busy_consumers": 3,
+      "total_handles": 120,
+      "distinct_messages": 120,
+      "seconds_first_to_last_handle": 7.08,
+      "partitions": 3
+    },
+    "kafka share group (one record per producer batch)": {
+      "per_consumer": [
+        21,
+        19,
+        20,
+        19,
+        20,
+        21
+      ],
+      "busy_consumers": 6,
+      "total_handles": 120,
+      "distinct_messages": 120,
+      "seconds_first_to_last_handle": 1.33,
+      "partitions": 3
+    },
+    "rabbitmq quorum queue": {
+      "per_consumer": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "busy_consumers": 6,
+      "total_handles": 120,
+      "distinct_messages": 120,
+      "seconds_first_to_last_handle": 1.13
+    },
+    "rabbitmq stream": {
+      "per_consumer": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "busy_consumers": 6,
+      "total_handles": 720,
+      "distinct_messages": 120,
+      "seconds_first_to_last_handle": 6.12,
+      "note": "every consumer of a stream reads every message"
+    },
+    "nats work-queue stream": {
+      "per_consumer": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "busy_consumers": 6,
+      "total_handles": 120,
+      "distinct_messages": 120,
+      "seconds_first_to_last_handle": 1.09
+    },
+    "nats limits stream": {
+      "per_consumer": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "busy_consumers": 6,
+      "total_handles": 120,
+      "distinct_messages": 120,
+      "seconds_first_to_last_handle": 1.08
+    }
+  }
+}

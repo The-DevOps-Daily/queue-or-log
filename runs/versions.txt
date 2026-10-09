@@ -1,0 +1,14 @@
+$ docker exec qol-kafka /opt/kafka/bin/kafka-features.sh --bootstrap-server localhost:9092 describe | grep share
+Feature: share.version                             SupportedMinVersion: 0                SupportedMaxVersion: 1                FinalizedVersionLevel: 1                Epoch: 7146
+$ docker exec qol-kafka /opt/kafka/bin/kafka-topics.sh --version
+4.3.1
+$ docker exec qol-rabbit rabbitmqctl version
+4.3.6
+$ docker exec qol-nats nats-server --version
+nats-server: v2.15.0
+$ .venv/bin/pip freeze | grep -E 'confluent|pika|nats'
+confluent-kafka==2.15.1
+nats-py==2.16.0
+pika==1.3.2
+$ uname -m
+aarch64

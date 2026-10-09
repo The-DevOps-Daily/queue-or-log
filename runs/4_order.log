@@ -1,0 +1,149 @@
+%4|1791543041.477|SHARECONSUMER|rdkafka#consumer-18| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+%4|1791543062.079|SHARECONSUMER|rdkafka#consumer-21| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+%4|1791543082.685|SHARECONSUMER|rdkafka#consumer-24| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+%4|1791543103.330|SHARECONSUMER|rdkafka#consumer-27| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+%4|1791543123.988|SHARECONSUMER|rdkafka#consumer-30| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+%4|1791543144.812|SHARECONSUMER|rdkafka#consumer-33| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+%4|1791543165.450|SHARECONSUMER|rdkafka#consumer-36| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+%4|1791543186.172|SHARECONSUMER|rdkafka#consumer-39| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+%4|1791543206.765|SHARECONSUMER|rdkafka#consumer-42| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+%4|1791543227.484|SHARECONSUMER|rdkafka#consumer-45| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+{
+  "recorded_at": "2026-10-09T10:57:06Z",
+  "events": "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+  "fails_once": "e3",
+  "results": {
+    "kafka consumer group": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "kafka share group (default)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "kafka share group (max.poll.records=1)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "rabbitmq quorum queue (prefetch 10)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "rabbitmq quorum queue (prefetch 1)": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "rabbitmq stream": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "nats workqueue stream (fetch 10, max_ack_pending 1000)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "nats workqueue stream (fetch 1, max_ack_pending 1000)": {
+      "runs": 5,
+      "runs_in_order": 2,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "nats workqueue stream (fetch 1, max_ack_pending 1)": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "nats limits stream (fetch 10, max_ack_pending 1000)": {
+      "runs": 5,
+      "runs_in_order": 0,
+      "orders": [
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3",
+        "e1 e2 e4 e5 e6 e7 e8 e9 e10 e3"
+      ]
+    },
+    "nats limits stream (fetch 1, max_ack_pending 1000)": {
+      "runs": 5,
+      "runs_in_order": 2,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e4 e3 e5 e6 e7 e8 e9 e10"
+      ]
+    },
+    "nats limits stream (fetch 1, max_ack_pending 1)": {
+      "runs": 5,
+      "runs_in_order": 5,
+      "orders": [
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10",
+        "e1 e2 e3 e4 e5 e6 e7 e8 e9 e10"
+      ]
+    }
+  }
+}

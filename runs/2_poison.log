@@ -1,0 +1,70 @@
+%4|1791543512.149|SHARECONSUMER|rdkafka#consumer-6| [thrd:app]: The share consumer is in "Preview" and is not recommended for production use
+{
+  "recorded_at": "2026-10-09T11:01:43Z",
+  "messages": 100,
+  "poison": "10",
+  "budget_seconds": 45.0,
+  "results": {
+    "kafka consumer group": {
+      "others_handled": 10,
+      "poison_attempts": 89,
+      "seconds": 45.5,
+      "poison_ends": "still the next offset; the partition does not move past it"
+    },
+    "kafka share group": {
+      "others_handled": 99,
+      "poison_attempts": 5,
+      "seconds": 20.5,
+      "poison_max_delivery_count": 5,
+      "record_at_offset_10_afterwards": "10",
+      "poison_ends": "archived by the share group: no member gets it again; it is still in the topic at its offset"
+    },
+    "rabbitmq quorum queue (defaults, basic.nack)": {
+      "others_handled": 99,
+      "poison_attempts": 5383,
+      "seconds": 45.0,
+      "messages_left": 1,
+      "poison_ends": "still in the queue, retried in a loop"
+    },
+    "rabbitmq quorum queue (limit 5 + dead letter, basic.nack)": {
+      "others_handled": 99,
+      "poison_attempts": 6064,
+      "seconds": 45.0,
+      "dead_letter_count": 0,
+      "dead_letter_body": null,
+      "messages_left": 1,
+      "poison_ends": "still in the queue, retried in a loop"
+    },
+    "rabbitmq quorum queue (limit 5 + dead letter, basic.reject)": {
+      "others_handled": 99,
+      "poison_attempts": 6,
+      "seconds": 4.1,
+      "dead_letter_count": 1,
+      "dead_letter_body": "10",
+      "messages_left": 0,
+      "poison_ends": "in the dead letter queue"
+    },
+    "rabbitmq stream": {
+      "others_handled": 10,
+      "poison_attempts": 928,
+      "seconds": 45.1,
+      "poison_ends": "still the next offset; the reader does not move past it"
+    },
+    "nats work-queue stream (max_deliver 5)": {
+      "others_handled": 99,
+      "poison_attempts": 5,
+      "seconds": 8.3,
+      "messages_left_in_stream": 1,
+      "max_deliveries_advisories": 1,
+      "poison_ends": "left in the stream, never delivered to this consumer again"
+    },
+    "nats limits stream (max_deliver 5)": {
+      "others_handled": 99,
+      "poison_attempts": 5,
+      "seconds": 8.2,
+      "messages_left_in_stream": 100,
+      "max_deliveries_advisories": 1,
+      "poison_ends": "kept in the stream with the rest; this consumer stops delivering it"
+    }
+  }
+}
